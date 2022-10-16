@@ -5,7 +5,6 @@ import Search from '../../components/Search';
 import { ProductsGrid } from './styles';
 import { useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
-import Checkout from '../Checkout';
 
 const Productos = [
   {
@@ -70,14 +69,12 @@ const Productos = [
   }
 ]
 
-export const Products = () => {
+export const Products = ({ carrito, setCarrito }) => {
 
   const { idShop } = useParams();
   
   const [searchProducts, setSearchProducts] = useState('');
   const { addProductCart } = useCart();
-
-  const [carrito, setCarrito] = useState([]);
 
   const listenerButtom = ({id, name, precio, img}) => {
     addProductCart(id);
@@ -87,6 +84,8 @@ export const Products = () => {
   const onSearchShops = (data) =>{
     setSearchProducts(data);
   }
+
+  console.log(carrito);
 
   return (
     <Page>
@@ -104,12 +103,8 @@ export const Products = () => {
           />)
         }
       </ProductsGrid>
+      {/* <Checkout /> */}
 
-      <Checkout 
-        carrito={carrito} 
-      
-      />
-      
     </Page>
   )
 }

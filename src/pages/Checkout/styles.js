@@ -1,11 +1,14 @@
 import styled from "styled-components";
+import { Theme } from "../../themes/theme";
 
 export const TotalWrapper = styled.div`
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     label {
         display: block;
         font-size: 2rem;
         margin-bottom: 0.5rem;
+        color: ${Theme.primary};
+        font-weight: bold;
     }
 
     input {
@@ -31,5 +34,6 @@ export const FormWrapper = styled.form`
         width: 50%;
         padding: 0.5rem;
         margin-bottom: 2rem;
+        border: 2px solid #ccc;
     }
 `;
